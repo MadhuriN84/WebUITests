@@ -14,7 +14,6 @@ jobs:
           command: java -jar selenium-server-standalone-3.141.59.jar -log test-reports/selenium.log
           background: true
       - run: mvn test
-    steps:
       - run:
           name: Save test results
           command: |
