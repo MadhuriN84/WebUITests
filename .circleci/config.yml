@@ -7,6 +7,10 @@ jobs:
       - checkout
       - run: mkdir test-reports
       - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
       - run:
@@ -24,3 +28,4 @@ jobs:
           path: ~/cucumber
       - store_artifacts:
           path: ~/cucumber
+          
