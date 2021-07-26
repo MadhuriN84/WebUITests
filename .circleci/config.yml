@@ -14,13 +14,14 @@ jobs:
           command: java -jar selenium-server-standalone-3.141.59.jar -log test-reports/selenium.log
           background: true
       - run: mvn test
+    steps:
       - run:
           name: Save test results
           command: |
-            mkdir -p ~/test-results/
-            find . -type f -regex ".*target/cucumber-reports/advanced-reports/*/*.html" -exec cp {} ~/test-results/ \;
+            mkdir -p ~/cucumber
+            bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
           when: always
       - store_test_results:
-          path: ~/test-results
+          path: ~/cucumber
       - store_artifacts:
-          path: ~/test-results/junit
+          path: ~/cucumber
