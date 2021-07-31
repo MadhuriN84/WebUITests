@@ -29,7 +29,6 @@ jobs:
             unzip
             sudo apt-get install unzip &&
             a=$(uname -m) &&
-            rm -r /tmp/chromedriver/
             mkdir /tmp/chromedriver/ &&
             wget -O /tmp/chromedriver/LATEST_RELEASE http://chromedriver.storage.googleapis.com/LATEST_RELEASE &&
             if [ $a == i686 ]; then b=32; elif [ $a == x86_64 ]; then b=64; fi &&
