@@ -20,16 +20,16 @@ jobs:
           command: |
             sudo apt update
             sudo apt install libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev
-            curl -s https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+            sudo curl -s https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
             && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
-            apt-get update && \
-            apt-get install -y \
+            sudo apt-get update && \
+            sudo apt-get install -y \
             xvfb \
             google-chrome-stable=92.\* \
             unzip
-            curl -s -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_92)/chromedriver_linux64.zip" && \
+            sudo curl -s -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_92)/chromedriver_linux64.zip" && \
             unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ && \
-            chmod +x /usr/bin/chromedriver
+            sudo chmod +x /usr/bin/chromedriver
       # Then run your tests!
       - run:
           name: Test
