@@ -14,6 +14,7 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      - run: mkdir test-reports
       - run:
           name: Download Selenium
           command: curl -O http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
