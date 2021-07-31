@@ -27,9 +27,16 @@ jobs:
             xvfb \
             google-chrome-stable=92.\* \
             unzip
-            sudo curl -s -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_92)/chromedriver_linux64.zip" && \
-            unzip /tmp/chromedriver.zip chromedriver -d /usr/bin/ && \
-            sudo chmod +x /usr/bin/chromedriver
+            sudo apt-get install unzip &&
+            a=$(uname -m) &&
+            rm -r /tmp/chromedriver/
+            mkdir /tmp/chromedriver/ &&
+            wget -O /tmp/chromedriver/LATEST_RELEASE http://chromedriver.storage.googleapis.com/LATEST_RELEASE &&
+            if [ $a == i686 ]; then b=32; elif [ $a == x86_64 ]; then b=64; fi &&
+            latest=$(cat /tmp/chromedriver/LATEST_RELEASE) &&
+            wget -O /tmp/chromedriver/chromedriver.zip 'http://chromedriver.storage.googleapis.com/'$latest'/chromedriver_linux'$b'.zip' &&
+            sudo unzip /tmp/chromedriver/chromedriver.zip chromedriver -d /usr/local/bin/ &&
+            echo 'success?'
       # Then run your tests!
       - run:
           name: Test
