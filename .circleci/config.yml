@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.1.3
+jobs:
+  install-chrome:
+    docker:
+      # replace with your preferred image
+      - image: cimg/openjdk:8.0.292-browsers
+    steps:
+      - browser-tools/install-chrome:
+          chrome-version: latest 
+          replace-existing: true 
+  install-chrome-driver:
+    docker:
+      # replace with your preferred image
+      - image: cimg/openjdk:8.0.292-browsers
+    steps:
+      - browser-tools/install-chromedriver
+run:
+  mvn clean test
+      
+
+workflows:
+  example-workflow:
+    jobs:
+      - install-chrome
+
+
