@@ -20,7 +20,7 @@ jobs:
           command: |
             mkdir -p ~/test-results/junit/
             cd target/cucumber-reports/advanced-reports/extentreports
-            ls
+            cp extent.html ~/test-results/junit
           when: always
       - store_test_results:
           path: ~/test-results
