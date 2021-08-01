@@ -8,6 +8,7 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install rubygems-integration
       - run: sudo apt install gems
+      - run: sudo apt-get install rubygems
       - run: sudo gem install bundler
       - checkout
       - run: mkdir test-reports
