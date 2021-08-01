@@ -18,12 +18,12 @@ jobs:
       - run:
           name: Save test results
           command: |
-            mkdir ~/test-reports/reports
-            cp -avr target/cucumber-reports/ ~/test-reports/report
-            mkdir ~/test-reports/results
+            mkdir test-reports/reports
+            cp -avr target/cucumber-reports/ ~/test-reports/reports
+            mkdir test-reports/results
             cp target/surefire-reports/TEST-runner.RunCucumberTest.xml ~/test-reports/results
           when: always
       - store_test_results:
           path: ~/test-reports/results
       - store_artifacts:
-          path: ~/test-reports/report
+          path: ~/test-reports/reports
