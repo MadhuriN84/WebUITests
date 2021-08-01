@@ -25,6 +25,6 @@ jobs:
             cp target/surefire-reports/TEST-runner.RunCucumberTest.xml test-reports/results/
           when: always
       - store_test_results:
-          path: ~/test-reports/results
+          path: ~/test-reports/results/
       - store_artifacts:
-          path: ~/test-reports/reports
+          path: ~/test-reports/reports/
