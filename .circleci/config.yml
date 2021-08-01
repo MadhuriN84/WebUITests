@@ -20,9 +20,9 @@ jobs:
       - run:
           name: Save test results
           command: |
-            cp -avr target/cucumber-reports/ ~/test-reports/reports
+            cp -avr target/cucumber-reports/ test-reports/reports/
            
-            cp target/surefire-reports/TEST-runner.RunCucumberTest.xml ~/test-reports/results
+            cp target/surefire-reports/TEST-runner.RunCucumberTest.xml test-reports/results/
           when: always
       - store_test_results:
           path: ~/test-reports/results
