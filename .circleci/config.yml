@@ -23,13 +23,10 @@ jobs:
       - run:
           name: Save test results
           command: |
-            mkdir -p ~/test-results/junit/
-            mkdir -p ~/test-results/html/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
-            cd target/cucumber-reports/advanced-reports/extentreports
-            cp extent.html ~/test-results/html
+            mkdir -p ~/cucumber
+            bundle exec cucumber --format junit --out ~/cucumber/junit.xml
           when: always
       - store_test_results:
-          path: ~/test-results/junit
+          path: ~/cucumber
       - store_artifacts:
-          path: ~/test-results/html
+          path: ~/cucumber
