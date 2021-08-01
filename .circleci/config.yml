@@ -20,10 +20,9 @@ jobs:
           command: |
             mkdir -p ~/test-results/junit/
             mkdir -p ~/test-results/html/
+            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
             cd target/cucumber-reports/advanced-reports/extentreports
             cp extent.html ~/test-results/html
-            cd target/surefire-reports
-            cp TEST-runner.RunCucumberTest.xml ~/test-results/junit
           when: always
       - store_test_results:
           path: ~/test-results/junit
