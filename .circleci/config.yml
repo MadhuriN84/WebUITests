@@ -18,11 +18,10 @@ jobs:
       - run:
           name: Save test results
           command: |
-            mkdir -p ~/test-results/junit/
             cd target/cucumber-reports/advanced-reports/extentreports
-            cp extent.html ~/test-results/junit
+            cp target/cucumber-reports/ ~/test-reports
           when: always
       - store_test_results:
-          path: ~/test-results
+          path: ~/test-reports
       - store_artifacts:
-          path: ~/test-results/junit
+          path: ~/test-reports
