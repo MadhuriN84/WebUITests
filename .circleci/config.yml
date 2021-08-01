@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: circleci/openjdk:9.0.4-jdk-browsers
     steps:
-      - run: sudo run apt-get update
-      - run: sudo apt-get install ruby-full
+      - run: sudo apt update
+      - run: sudo apt install rubygems-integration
       - run: sudo gem install bundler
       - checkout
       - run: mkdir test-reports
