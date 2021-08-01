@@ -20,7 +20,7 @@ jobs:
           command: |
             mkdir -p ~/test-results/junit/
             cd target/cucumber-reports/advanced-reports/extentreports
-            find . -type f -regex ".*/target/cucumber-reports/advanced-reports/extentreports.*html" -exec cp {} ~/test-results/junit/ \;
+            ls
           when: always
       - store_test_results:
           path: ~/test-results
