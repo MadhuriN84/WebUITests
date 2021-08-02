@@ -12,7 +12,7 @@ Feature: Acceptance Testing to validate the user login and shopping cart functio
      Examples:
       | emailaddress                | password               | message         |
       | madhuri.nalamotu@gmail.com  | Helloworld12345        | InvalidPassword |
-      | madhuri.qwnalamotu@gmail.com| Helloworld12345        | InvalidEmail    |
+      | madhuri.qwnalamotu@gmail.com| test123		         | InvalidEmail    |
       | madhuri.nalamotu@gmail.com  |                        | BlankPassword   |
       |                             | Helloworld12345        | BlankEmail      |
       |                             |                        | BlankDetails    |

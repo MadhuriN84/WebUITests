@@ -18,12 +18,12 @@ public class APLandingPageActions {
         PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeLandingPageLocators);
     }
 
-    public void verifyTheLandingPage(){
+    public void verifyTheLandingPage(){ 
         String actualTitle = SeleniumDriver.getDriver().getTitle();
         assertTrue(actualTitle.contains("Store"));
     }
 
-    public void clickOnSignInButton() {
+    public void clickOnSignInButton() { 
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.elementToBeClickable(automationPracticeLandingPageLocators.signInButton));
         automationPracticeLandingPageLocators.signInButton.click();
         assertTrue(SeleniumDriver.getDriver().getCurrentUrl().contains("authentication"));

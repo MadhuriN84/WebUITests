@@ -54,9 +54,4 @@ public class APAuthenticationPageActions {
         assertTrue(text.contains("An email address required."));
     }
 
-    public void verifySuccessfulLogin(){
-        SeleniumDriver.getWaitDriver().until(ExpectedConditions.visibilityOf(automationPracticeAuthenticationPageLocators.myAccount));
-        String text = automationPracticeAuthenticationPageLocators.myAccount.getText();
-        assertTrue(text.contentEquals("My Account"));
-    }
 }

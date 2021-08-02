@@ -9,15 +9,17 @@ import utils.SeleniumDriver;
 import static org.junit.Assert.assertTrue;
 
 public class APOrderConfirmationPageActions {
-        APOrderConfirmationPageLocators automationPracticeOrderConfirmationPageLocators = null;
+	APOrderConfirmationPageLocators automationPracticeOrderConfirmationPageLocators = null;
 
-        public APOrderConfirmationPageActions() {
-            this.automationPracticeOrderConfirmationPageLocators = new APOrderConfirmationPageLocators();
-            PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeOrderConfirmationPageLocators);
-        }
+	public APOrderConfirmationPageActions() {
+		this.automationPracticeOrderConfirmationPageLocators = new APOrderConfirmationPageLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeOrderConfirmationPageLocators);
+	}
 
-        public void verifyTheOrderConfirmation() {
-            SeleniumDriver.getWaitDriver().until(ExpectedConditions.visibilityOf(automationPracticeOrderConfirmationPageLocators.orderSuccessText));
-            assertTrue(automationPracticeOrderConfirmationPageLocators.orderSuccessText.getText().contains("My Store is complete"));
-        }
+	public void verifyTheOrderConfirmation() {
+		SeleniumDriver.getWaitDriver().until(
+				ExpectedConditions.visibilityOf(automationPracticeOrderConfirmationPageLocators.orderSuccessText));
+		assertTrue(automationPracticeOrderConfirmationPageLocators.orderSuccessText.getText()
+				.contains("My Store is complete"));
+	}
 }

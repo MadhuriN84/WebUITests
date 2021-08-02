@@ -55,42 +55,42 @@ public class APProductDetailsPageActions {
 
     }
 
-    public void setQuantity(int index, String [] quantityArray){
+    public void setQuantity(int index, String [] quantityArray){ 
         String quantity = quantityArray[index];
         automationPracticeProductDetailsPageLocators.quantity.clear();
         automationPracticeProductDetailsPageLocators.quantity.sendKeys(quantity);
         assertTrue(automationPracticeProductDetailsPageLocators.quantity.getAttribute("value").contentEquals(quantity));
     }
 
-    public void setSize(int index, String[] sizeArray){
+    public void setSize(int index, String[] sizeArray){ 
         String textValue = sizeArray[index];
         Select dropdown = new Select(automationPracticeProductDetailsPageLocators.sizeDropdown);
         dropdown.selectByVisibleText(textValue);
         System.out.println(dropdown.getFirstSelectedOption());
     }
 
-    public void clickOnAddToCart(){
+    public void clickOnAddToCart(){ 
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.elementToBeClickable(automationPracticeProductDetailsPageLocators.addToCart));
         automationPracticeProductDetailsPageLocators.addToCart.click();
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.visibilityOf(automationPracticeProductDetailsPageLocators.productAddedSucccessfulText));
         assertTrue(automationPracticeProductDetailsPageLocators.productAddedSucccessfulText.getText().contains("successfully"));
     }
 
-    public void clickOnContinueShopping() {
+    public void clickOnContinueShopping() { 
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.elementToBeClickable(automationPracticeProductDetailsPageLocators.continueShoppingButton));
         automationPracticeProductDetailsPageLocators.continueShoppingButton.click();
         assertTrue(automationPracticeProductDetailsPageLocators.addToCart.isDisplayed());
 
     }
 
-    public void clickOnCart() {
+    public void clickOnCart() { 
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.elementToBeClickable(automationPracticeProductDetailsPageLocators.shoppingCartButton));
         automationPracticeProductDetailsPageLocators.shoppingCartButton.click();
         assertTrue(SeleniumDriver.getDriver().findElement(By.xpath("//*[@id='center_column']/p[2]/a[1]")).isDisplayed());
 
     }
 
-    public void returnToProductDetails()  {
+    public void returnToProductDetails()  { 
         String currentUrl = SeleniumDriver.getDriver().getCurrentUrl();
         if(currentUrl.contains("id_product")){
             SeleniumDriver.getDriver().navigate().to("http://automationpractice.com/index.php?id_category=3&controller=category");

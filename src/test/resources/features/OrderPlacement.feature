@@ -1,5 +1,5 @@
 
-@orderplacement
+@Orderplacement
 Feature: OrderPlacement Process
 
   Scenario Outline: To verify the basic functionality of Checkout for "<dress name>"

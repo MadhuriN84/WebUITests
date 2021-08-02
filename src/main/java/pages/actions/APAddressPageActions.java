@@ -11,20 +11,20 @@ import static org.junit.Assert.assertTrue;
 
 public class APAddressPageActions {
 
-    APAddressPageLocators automationPracticeAddressPageLocators = null;
-    APShippingPageLocators automationPracticeShippingPageLocators = null;
+	APAddressPageLocators automationPracticeAddressPageLocators = null;
+	APShippingPageLocators automationPracticeShippingPageLocators = null;
 
-    public APAddressPageActions() {
-        this.automationPracticeAddressPageLocators = new APAddressPageLocators();
-        this.automationPracticeShippingPageLocators = new APShippingPageLocators();
-        PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeAddressPageLocators);
-        PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeShippingPageLocators);
-    }
+	public APAddressPageActions() {
+		this.automationPracticeAddressPageLocators = new APAddressPageLocators();
+		this.automationPracticeShippingPageLocators = new APShippingPageLocators();
+		PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeAddressPageLocators);
+		PageFactory.initElements(SeleniumDriver.getDriver(), automationPracticeShippingPageLocators);
+	}
 
-    public void clickOnProceedToCheckout() {
-
-        SeleniumDriver.getWaitDriver().until(ExpectedConditions.elementToBeClickable(automationPracticeAddressPageLocators.proceedToCheckout));
-        automationPracticeAddressPageLocators.proceedToCheckout.click();
-        assertTrue(automationPracticeShippingPageLocators.shippingText.getText().equalsIgnoreCase("shipping"));
-    }
+	public void clickOnProceedToCheckout() {
+		SeleniumDriver.getWaitDriver().until(
+				ExpectedConditions.elementToBeClickable(automationPracticeAddressPageLocators.proceedToCheckout));
+		automationPracticeAddressPageLocators.proceedToCheckout.click();
+		assertTrue(automationPracticeShippingPageLocators.shippingText.getText().equalsIgnoreCase("shipping"));
+	}
 }

@@ -30,7 +30,7 @@ public class APGlobalSearchPageActions {
 		assertTrue(SeleniumDriver.getDriver().getCurrentUrl().contains("submit_search"));
 	}
 
-	public void enterTheProductInfo(String Product) {
+	public void enterTheProductInfo(String Product) { 
 
 		SeleniumDriver.getWaitDriver().until(
 				ExpectedConditions.elementToBeClickable(automationPracticeGlobalSearchPageLocators.SearchTextArea));
@@ -38,7 +38,7 @@ public class APGlobalSearchPageActions {
 
 	}
 	
-	public void searchEnabled() {
+	public void searchEnabled() { 
 
 		SeleniumDriver.getWaitDriver().until(
 				ExpectedConditions.elementToBeClickable(automationPracticeGlobalSearchPageLocators.SearchTextArea));
@@ -47,29 +47,26 @@ public class APGlobalSearchPageActions {
 		
 	}
 	
-    public void verifyNoResultsFound(){
+    public void verifyNoResultsFound(){ 
         SeleniumDriver.getWaitDriver().until(ExpectedConditions.visibilityOf(automationPracticeGlobalSearchPageLocators.ResultsMessage));
         String text = automationPracticeGlobalSearchPageLocators.ResultsMessage.getText();
         assertTrue(text.contains("No results"));
     }
     
-    public void verifyTheResultNames(String productname){
-        //SeleniumDriver.getWaitDriver().until(ExpectedConditions.visibilityOfAllElements(automationPracticeGlobalSearchPageLocators.Resultnames));
-		int productListSize = automationPracticeGlobalSearchPageLocators.Resultnames.size();
-		String resultMessage = automationPracticeGlobalSearchPageLocators.ResultsMessage.getText();
-    	if(productListSize>0){
-        for(int i=0; i<automationPracticeGlobalSearchPageLocators.Resultnames.size(); i++) {
-			String pname = automationPracticeGlobalSearchPageLocators.Resultnames.get(i).getText();
-			assertTrue(pname.contains(productname));	
-			}
-		} else {
-			
-			assertTrue(resultMessage.contains("0 results"));
-		}
-		
-    }
-    
-    
+	public void verifyTheResultNames(String productname) { 
 
-	
+		if (productname.equals("Tops")) {
+			String resultMessage = automationPracticeGlobalSearchPageLocators.ResultsMessage.getText();
+			assertTrue("There are results shown", resultMessage.contains("0 results"));
+		} else {
+			List<WebElement> results = automationPracticeGlobalSearchPageLocators.Resultnames;
+			for (int i = 0; i < results.size(); i++) {
+				String pname = results.get(i).getText();
+				assertTrue("The results are missing the search product name", pname.contains(productname));
+			}
+		}
+	}
+
 }
+	
+

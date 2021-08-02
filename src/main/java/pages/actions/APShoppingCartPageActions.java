@@ -47,7 +47,7 @@ public class APShoppingCartPageActions {
     }
 
 
-    public void verifyTheProductNamesInShoppingCart(String [] dressNameArray){
+    public void verifyTheProductNamesInShoppingCart(String [] dressNameArray){ 
         List<WebElement> productSet = automationPracticeShoppingCartPageLocators.productsSummaryTable;
         int numberofProducts = dressNameArray.length;
         assertEquals(productSet.size(), numberofProducts);
@@ -75,7 +75,7 @@ public class APShoppingCartPageActions {
         }
     }
 
-    public void updateTheProductQuantities(String [] quantityArray) throws InterruptedException {
+    public void updateTheProductQuantities(String [] quantityArray) throws InterruptedException { 
         for(int i = 1; i <= quantityArray.length; i++) {
             WebElement tempElement = SeleniumDriver.getDriver().findElement(By.xpath("//table/tbody/tr[" + i + "]/td[5]/input[2]"));
             tempElement.clear();
