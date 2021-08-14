@@ -54,6 +54,6 @@ Github repository link:
 Below is the Circles-CI dashboard which shows the Circles CI integration and the builds status for every commit into master
 `https://app.circleci.com/pipelines/github/MadhuriN84/WebUITests`
 
-```
+````\
 
 
